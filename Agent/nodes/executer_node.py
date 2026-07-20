@@ -54,7 +54,7 @@ never open large files like
   - coverage/
   - .cache/
   - __pycache__/
-- once again never open large file like venv files   nodemodules files etc
+- once again never open large file like venv files   nodemodules files etc and never logout vps from tool never execute command to logout vps it will be done by user from frontend
 """
 )
 
