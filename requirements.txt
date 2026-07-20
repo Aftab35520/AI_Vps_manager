@@ -1,0 +1,8 @@
+paramiko
+langgraph
+langchain
+langchain-community
+dotenv
+langchain_openai
+flask
+flask-cors
