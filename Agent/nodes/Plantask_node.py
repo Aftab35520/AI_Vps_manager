@@ -57,6 +57,7 @@ Rules:
 - get some info about app  user want to deploy
 - if app is backend simply host on vps and open port for public access
 - if app is frontend like react app or other create an simple nodejs app and serve through that
+- before deploying new app check if other other app runnign on same port if running ask user to completely remove old app or change port on new app by  chenging port in main file 
 Return ONLY structured output.
 
 Example:
