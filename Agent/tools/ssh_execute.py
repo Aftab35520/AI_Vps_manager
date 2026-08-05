@@ -9,7 +9,8 @@ from vps_connection.connection import connection_manager
 
 MAX_LINES = 200          # Keep only the last 200 lines
 MAX_CHARS = 5000         # Maximum characters returned
-
+import os
+import psutil
 
 @tool
 def run_shell_command(
@@ -22,6 +23,15 @@ def run_shell_command(
     Returns only the last portion of stdout/stderr to prevent
     huge outputs from consuming memory.
     """
+    
+
+    process = psutil.Process(os.getpid())
+
+    print(
+        "RAM:",
+        round(process.memory_info().rss / 1024 / 1024, 2),
+        "MB"
+    )
 
     connection_id = state.get("connection_id")
 
