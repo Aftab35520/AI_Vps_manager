@@ -140,7 +140,7 @@ def chat():
                     return
 
                 print("=" * 80)
-                print(event)
+                
 
                 # Interrupt
                 if "__interrupt__" in event:
