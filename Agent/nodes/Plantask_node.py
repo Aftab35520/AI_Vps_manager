@@ -38,7 +38,7 @@ Your task is to break the request into a sequence of small executable tasks.
 
 Rules:
 
-- Create a maximum of 20 tasks.
+- Create a maximum of 10 tasks.
 - Each task must represent ONE logical operation.
 - Tasks must be ordered exactly as they should be executed.
 - Every task should depend on the previous one.
