@@ -9,7 +9,7 @@ def keep_last_5_messages(
     if not isinstance(right, list):
         right = [right]
 
-    return (left + right)[-5:]
+    return (left + right)[-20:]
 
 
 class AgentState(TypedDict):

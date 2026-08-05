@@ -57,8 +57,19 @@ never open large files like
 - once again never open large file like venv files   nodemodules files etc and never logout vps from tool never execute command to logout vps it will be done by user from frontend
 """
 )
-
+import os
+import psutil
 def devops_Execute_command(state:AgentState):
+        
+
+    process = psutil.Process(os.getpid())
+
+    print(
+        "RAM:",
+        round(process.memory_info().rss / 1024 / 1024, 2),
+        "MB"
+    )
+
 
     if state["Intrupt"]=='YES':
         

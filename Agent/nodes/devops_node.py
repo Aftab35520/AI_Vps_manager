@@ -185,8 +185,23 @@ after executing all task if user said to deploy app check if it is accessable ev
 """
 )
 
-
+import os
+import psutil
 def devops_node(state: AgentState):
+       
+    process = psutil.Process(os.getpid())
+
+    print(
+        "RAM:",
+        round(process.memory_info().rss / 1024 / 1024, 2),
+        "MB"
+    )
+    MAX_MESSAGES = 20
+
+    messages = state["messages"]
+
+    if len(messages) > MAX_MESSAGES:
+        messages = messages[-MAX_MESSAGES:]
 
     response = devops_llm.invoke(
         [
