@@ -8,7 +8,17 @@ from Agent.tools.ssh_execute import run_shell_command
 from Agent.nodes.Plantask_node import Plantask_node
 from Agent.nodes.devops_node import devops_node
 from Agent.nodes.executer_node import devops_Execute_command
+from pymongo import MongoClient
+from langgraph.checkpoint.mongodb import MongoDBSaver
+uri = "mongodb+srv://Aftab355201:Aftab355201@cluster0.cn5rpym.mongodb.net/?appName=Cluster0"
+client = MongoClient(uri)
 
+
+
+checkpointer = MongoDBSaver(
+    client=client,
+    db_name="langgraph"
+)
 
 def route_node(state:AgentState):
     if state["workflow_status"]=="RUNNING":
@@ -55,7 +65,7 @@ graph.add_conditional_edges(
 )
 graph.add_edge("tools","devops_node")
 
-graph=graph.compile(checkpointer=InMemorySaver())
+graph=graph.compile(checkpointer=checkpointer)
 
 # Generate PNG
 png = graph.get_graph().draw_mermaid_png()

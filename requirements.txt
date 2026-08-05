@@ -7,3 +7,5 @@ langchain_openai
 flask
 flask-cors
 gunicorn
+langgraph-checkpoint-mongodb
+pymongo
